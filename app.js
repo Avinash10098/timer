@@ -33,6 +33,9 @@ let tempMin = temp.getMinutes();
 let tempDay = temp.getDate();
 let tempHours = temp.getHours();
 
+let valueEnter = "";
+let passwordValue = "";
+
 // let time = new Date(2024, 0, 31, 17, 30, 0);
 let time = new Date(tempyear, tempMonth, tempDay + 7, tempHours, tempMin, 0)
 // console.log(time);
@@ -88,3 +91,42 @@ function calculateRemainingTime() {
 let count = setInterval(calculateRemainingTime, 1000)
 
 calculateRemainingTime();
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader-overlay");
+  
+  // Add the hidden class to trigger the smooth CSS transition
+  loader.classList.add("loader-hidden");
+});
+
+const getMaindivId = document.getElementById("main-div");
+getMaindivId.style.display = "none";
+
+const handleUserNameChange = (event) => {
+   valueEnter = event.target.value;
+   console.log(valueEnter);
+}
+
+const handelPasswordChange = (event) =>{
+    passworValue = event.target.value;
+    console.log(passworValue);
+}
+
+const valiDateUsernameAndPassword = () => {
+    if(valueEnter === "Avinash" && passworValue === "1234"){
+        const loginDiv = document.getElementById("login-div");
+        loginDiv.style.display = "none";
+        getMaindivId.style.display = "block";
+    }else{
+        alert('UserName and password are wrong');
+    }
+}
+
+const handleSubmit = () =>{
+    const loader = document.getElementById("loader-overlay");
+    loader.classList.remove("loader-hidden");
+    setTimeout(() => {
+        valiDateUsernameAndPassword();
+        loader.classList.add("loader-hidden");
+    }, 3000);
+}

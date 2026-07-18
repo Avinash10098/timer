@@ -9,18 +9,55 @@
 </head>
 
 <body>
+    <div id="loader-overlay">
+        <div class="spinner"></div>
+        <div>Loading...</div>
+    </div>
     <section class="section">
-        <div class = "Container">
-            <H1>Login Form</H1>
-            <div class = "login-model">
-                <div class= "login-modle-inner">
-                    <input placeholder="Enter your UserName">
-                    <input placeholder="Enter your Password">
+        <div id="login-div" class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="login-icon">🔐</div>
+                    <h1>Welcome Back</h1>
+                    <p>Please enter your details to continue</p>
                 </div>
-                <button class="btn" style = "Color : red">Login</button>
+
+                <div class="login-form">
+                    <div class="input-group">
+                        <label for="userNameId">Username</label>
+
+                        <input
+                            id="userNameId"
+                            type="text"
+                            placeholder="Enter your username"
+                            autocomplete="username"
+                            oninput="handleUserNameChange(event)"
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="passwordId">Password</label>
+
+                        <input
+                            id="passwordId"
+                            type="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            oninput="handelPasswordChange(event)"
+                        >
+                    </div>
+
+                    <button
+                        type="button"
+                        class="login-button"
+                        onclick="handleSubmit()"
+                    >
+                        Login
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="container">
+        <div id ="main-div" class="container">
             <div class="container1">
                 <img src="image/kari-shea-1SAnrIxw5OY-unsplash.jpg" alt="">
             </div>
